@@ -41,7 +41,7 @@ namespace UI_Windows.Forms
             this.lst_VehicleNames.ItemHeight = 15;
             this.lst_VehicleNames.Location = new System.Drawing.Point(13, 13);
             this.lst_VehicleNames.Name = "lst_VehicleNames";
-            this.lst_VehicleNames.Size = new System.Drawing.Size(120, 379);
+            this.lst_VehicleNames.Size = new System.Drawing.Size(136, 379);
             this.lst_VehicleNames.TabIndex = 0;
             this.lst_VehicleNames.SelectedIndexChanged += new System.EventHandler(this.lst_VehicleNames_SelectedIndexChanged);
             // 
@@ -71,7 +71,7 @@ namespace UI_Windows.Forms
             // 
             this.lst_Plates.FormattingEnabled = true;
             this.lst_Plates.ItemHeight = 15;
-            this.lst_Plates.Location = new System.Drawing.Point(139, 12);
+            this.lst_Plates.Location = new System.Drawing.Point(155, 170);
             this.lst_Plates.Name = "lst_Plates";
             this.lst_Plates.Size = new System.Drawing.Size(76, 49);
             this.lst_Plates.TabIndex = 3;

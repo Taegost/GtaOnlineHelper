@@ -8,10 +8,10 @@ namespace GTA_Online_Helper
     class ErrorHandling
     {
         static string buildEnv = "";
-#if DEBUG
-    buildEnv = "DEBUG";
+#if Debug
+        buildEnv = "DEBUG";
 #elif Release
-    buildEnv = "RELEASE";
+        buildEnv = "RELEASE";
 #endif
         static private string logDirectory = "";
 

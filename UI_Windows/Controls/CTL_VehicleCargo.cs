@@ -26,36 +26,28 @@ namespace UI_Windows.Controls
             LoadVehicleList();
         } // constructor
 
-        private Vc_Vehicle GetCurrentlySelectedVehicle()
-        {
-            Vc_Vehicle returnValue = null;
-            if (!(lst_CurrentVehicles.SelectedIndex == -1))
-            {
-                foreach (Vc_Vehicle vehicle in currentVehicles)
-                {
-                    if (lst_CurrentVehicles.SelectedItem.ToString() == ($"{vehicle.Name} - {vehicle.Plate}")) { returnValue = vehicle; }
-                }
-            }
-            return returnValue;
-        } // method GetCurrentlySelectedVehicle
-
         private void AddVehicleToList(Vc_Vehicle newVehicle)
         {
             currentVehicles.Add(newVehicle);
-            lst_CurrentVehicles.Items.Add($"{newVehicle.Name} - {newVehicle.Plate}");
+            lst_CurrentVehicles.Items.Add(newVehicle.GetNameAndPlate());
             SaveVehicleList();
+            UpdateInterface();
         } // method AddVehicleToList
 
-        private void RemoveVehicleFromList(Vc_Vehicle removeVehicle)
+        private void RemoveVehicleFromList(Vc_Vehicle vehicleToRemove)
         {
-            if (!(lst_CurrentVehicles.SelectedIndex == -1))
+            // This is a little hacky for now because currentVehicles.Remove isn't working when passing in vehicleToRemove, even if it's identical
+            foreach (Vc_Vehicle vehicle in currentVehicles)
             {
-                Vc_Vehicle vehicleToRemove = GetCurrentlySelectedVehicle();
-
-                currentVehicles.Remove(vehicleToRemove);
-                lst_CurrentVehicles.Items.RemoveAt(lst_CurrentVehicles.SelectedIndex);
-                SaveVehicleList();
-            }
+                if (vehicle.GetNameAndPlate().Equals(vehicleToRemove.GetNameAndPlate()))
+                {
+                    currentVehicles.Remove(vehicle);
+                    break;
+                } // if (vehicle.GetNameAndPlate().Equals(vehicleToRemove.GetNameAndPlate()))
+            } // foreach (Vc_Vehicle vehicle in currentVehicles)
+            lst_CurrentVehicles.Items.Remove(vehicleToRemove.GetNameAndPlate());
+            SaveVehicleList();
+            UpdateInterface();
         } // method RemoveVehicleFromList
 
         private void SaveVehicleList()
@@ -94,30 +86,38 @@ namespace UI_Windows.Controls
 
             // Updates completed collections
             List<string> completedCollections = new Vc_Vehicles().GetCompletedCollectionsFromList(currentVehicles);
+            lst_CompleteCollections.Items.Clear();
             if (completedCollections.Count > 0)
             {
                 foreach (string collection in completedCollections) { if (!lst_CompleteCollections.Items.Contains(collection)) { lst_CompleteCollections.Items.Add(collection); } }
             }
-            else { lst_CompleteCollections.Items.Clear(); }
 
             // Updates vehicles by range that aren't in a collection
+            lst_TopRange.Items.Clear();
+            lst_MidRange.Items.Clear();
+            lst_StandardRange.Items.Clear();
             foreach (Vc_Vehicle vehicle in currentVehicles)
             {
-                switch (vehicle.Range)
+                if (vehicle.InCollection()) { continue; }
+                    switch (vehicle.Range)
                 {
                     case "Top":
-                        if ((!vehicle.InCollection()) && (!lst_TopRange.Items.Contains(vehicle.GetNameAndPlate()))) { lst_TopRange.Items.Add(vehicle.GetNameAndPlate()); }
+                        if (!lst_TopRange.Items.Contains(vehicle.GetNameAndPlate())) { lst_TopRange.Items.Add(vehicle.GetNameAndPlate()); }
                         break;
                     case "Mid":
-                        if ((!vehicle.InCollection()) && (!lst_MidRange.Items.Contains(vehicle.GetNameAndPlate()))) { lst_MidRange.Items.Add(vehicle.GetNameAndPlate()); }
+                        if (!lst_MidRange.Items.Contains(vehicle.GetNameAndPlate())) { lst_MidRange.Items.Add(vehicle.GetNameAndPlate()); }
                         break;
                     case "Standard":
-                        if ((!vehicle.InCollection()) && (!lst_StandardRange.Items.Contains(vehicle.GetNameAndPlate()))) { lst_StandardRange.Items.Add(vehicle.GetNameAndPlate()); }
+                        if (!lst_StandardRange.Items.Contains(vehicle.GetNameAndPlate())) { lst_StandardRange.Items.Add(vehicle.GetNameAndPlate()); }
                         break;
                     case "Default":
                         throw new ArgumentException($"The range {vehicle.Range} for vehicle {vehicle.GetNameAndPlate()} is not valid");
                 } // switch (vehicle.Range)
-            }
+            } // foreach (Vc_Vehicle vehicle in currentVehicles)
+
+            int totalWarehouseSlots = 40;
+            int warehouseFillPercentage = (int)((double)currentVehicles.Count / totalWarehouseSlots * 100);
+            lbl_VehicleCount.Text = $"{currentVehicles.Count}/{totalWarehouseSlots}  {warehouseFillPercentage}% full";
         } // method UpdateInterface
 
         private void btn_AddVehicle_Click(object sender, EventArgs e)
@@ -131,13 +131,23 @@ namespace UI_Windows.Controls
 
         private void btn_RemoveVehicle_Click(object sender, EventArgs e)
         {
-            if (!(lst_CurrentVehicles.SelectedIndex == -1))
+            if (lst_CurrentVehicles.SelectedItems.Count > 0)
             {
-                Vc_Vehicle selectedVehicle = GetCurrentlySelectedVehicle();
-                DialogResult dialogResult = MessageBox.Show($"Are you sure you want to remove {selectedVehicle.Name} - {selectedVehicle.Plate}?", "Remove vehicle?", MessageBoxButtons.YesNo);
-                if (dialogResult == DialogResult.Yes) { RemoveVehicleFromList(selectedVehicle); }
-            }
-            UpdateInterface();
+                Vc_Vehicles fullVehicleList = new Vc_Vehicles();
+                List<Vc_Vehicle> vehiclesToRemove = new List<Vc_Vehicle>();
+
+                foreach (string selectedItem in lst_CurrentVehicles.SelectedItems)
+                {
+                    string[] vehicleParts = selectedItem.Split(" - ");
+                    vehiclesToRemove.Add(fullVehicleList.GetVehicleByNameAndPlate(vehicleParts[0], vehicleParts[1]));
+                } // foreach (string selectedItem in lst_CurrentVehicles.SelectedItems)
+
+                string vehiclesToRemoveVerification = "";
+                foreach (Vc_Vehicle vehicle in vehiclesToRemove) { vehiclesToRemoveVerification += $"\n{vehicle.GetNameAndPlate()}"; }
+                DialogResult dialogResult = MessageBox.Show($"Are you sure you want to remove the following vehicle(s)?\n{vehiclesToRemoveVerification}", "Remove vehicle?", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes) { foreach (Vc_Vehicle vehicle in vehiclesToRemove) { RemoveVehicleFromList(vehicle); } }
+                UpdateInterface();
+            } // if (lst_CurrentVehicles.SelectedItems.Count > 0)
         } // event btn_RemoveVehicle_Click
     } // class CTL_VehicleCargo
 }

@@ -41,6 +41,7 @@ namespace UI_Windows.Controls
             this.lst_MidRange = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lst_StandardRange = new System.Windows.Forms.ListBox();
+            this.lbl_VehicleCount = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lst_CurrentVehicles
@@ -49,7 +50,8 @@ namespace UI_Windows.Controls
             this.lst_CurrentVehicles.ItemHeight = 15;
             this.lst_CurrentVehicles.Location = new System.Drawing.Point(18, 40);
             this.lst_CurrentVehicles.Name = "lst_CurrentVehicles";
-            this.lst_CurrentVehicles.Size = new System.Drawing.Size(120, 349);
+            this.lst_CurrentVehicles.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
+            this.lst_CurrentVehicles.Size = new System.Drawing.Size(187, 349);
             this.lst_CurrentVehicles.Sorted = true;
             this.lst_CurrentVehicles.TabIndex = 0;
             // 
@@ -64,7 +66,7 @@ namespace UI_Windows.Controls
             // 
             // btn_AddVehicle
             // 
-            this.btn_AddVehicle.Location = new System.Drawing.Point(145, 68);
+            this.btn_AddVehicle.Location = new System.Drawing.Point(211, 162);
             this.btn_AddVehicle.Name = "btn_AddVehicle";
             this.btn_AddVehicle.Size = new System.Drawing.Size(75, 23);
             this.btn_AddVehicle.TabIndex = 2;
@@ -75,7 +77,7 @@ namespace UI_Windows.Controls
             // btn_RemoveVehicle
             // 
             this.btn_RemoveVehicle.Enabled = false;
-            this.btn_RemoveVehicle.Location = new System.Drawing.Point(145, 98);
+            this.btn_RemoveVehicle.Location = new System.Drawing.Point(211, 192);
             this.btn_RemoveVehicle.Name = "btn_RemoveVehicle";
             this.btn_RemoveVehicle.Size = new System.Drawing.Size(75, 23);
             this.btn_RemoveVehicle.TabIndex = 3;
@@ -86,7 +88,7 @@ namespace UI_Windows.Controls
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(225, 19);
+            this.label1.Location = new System.Drawing.Point(292, 95);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(121, 15);
             this.label1.TabIndex = 4;
@@ -96,9 +98,10 @@ namespace UI_Windows.Controls
             // 
             this.lst_CompleteCollections.FormattingEnabled = true;
             this.lst_CompleteCollections.ItemHeight = 15;
-            this.lst_CompleteCollections.Location = new System.Drawing.Point(226, 40);
+            this.lst_CompleteCollections.Location = new System.Drawing.Point(293, 116);
             this.lst_CompleteCollections.Name = "lst_CompleteCollections";
-            this.lst_CompleteCollections.Size = new System.Drawing.Size(120, 274);
+            this.lst_CompleteCollections.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.lst_CompleteCollections.Size = new System.Drawing.Size(120, 184);
             this.lst_CompleteCollections.Sorted = true;
             this.lst_CompleteCollections.TabIndex = 5;
             // 
@@ -106,16 +109,17 @@ namespace UI_Windows.Controls
             // 
             this.lst_TopRange.FormattingEnabled = true;
             this.lst_TopRange.ItemHeight = 15;
-            this.lst_TopRange.Location = new System.Drawing.Point(353, 40);
+            this.lst_TopRange.Location = new System.Drawing.Point(419, 34);
             this.lst_TopRange.Name = "lst_TopRange";
-            this.lst_TopRange.Size = new System.Drawing.Size(120, 94);
+            this.lst_TopRange.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.lst_TopRange.Size = new System.Drawing.Size(187, 94);
             this.lst_TopRange.Sorted = true;
             this.lst_TopRange.TabIndex = 6;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(371, 141);
+            this.label2.Location = new System.Drawing.Point(437, 135);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 15);
             this.label2.TabIndex = 7;
@@ -124,7 +128,7 @@ namespace UI_Windows.Controls
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(371, 19);
+            this.label3.Location = new System.Drawing.Point(437, 13);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 15);
             this.label3.TabIndex = 8;
@@ -134,16 +138,17 @@ namespace UI_Windows.Controls
             // 
             this.lst_MidRange.FormattingEnabled = true;
             this.lst_MidRange.ItemHeight = 15;
-            this.lst_MidRange.Location = new System.Drawing.Point(353, 159);
+            this.lst_MidRange.Location = new System.Drawing.Point(419, 153);
             this.lst_MidRange.Name = "lst_MidRange";
-            this.lst_MidRange.Size = new System.Drawing.Size(120, 94);
+            this.lst_MidRange.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.lst_MidRange.Size = new System.Drawing.Size(187, 94);
             this.lst_MidRange.Sorted = true;
             this.lst_MidRange.TabIndex = 9;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(353, 260);
+            this.label4.Location = new System.Drawing.Point(419, 254);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 15);
             this.label4.TabIndex = 10;
@@ -153,16 +158,27 @@ namespace UI_Windows.Controls
             // 
             this.lst_StandardRange.FormattingEnabled = true;
             this.lst_StandardRange.ItemHeight = 15;
-            this.lst_StandardRange.Location = new System.Drawing.Point(353, 278);
+            this.lst_StandardRange.Location = new System.Drawing.Point(419, 272);
             this.lst_StandardRange.Name = "lst_StandardRange";
-            this.lst_StandardRange.Size = new System.Drawing.Size(120, 94);
+            this.lst_StandardRange.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.lst_StandardRange.Size = new System.Drawing.Size(187, 94);
             this.lst_StandardRange.Sorted = true;
             this.lst_StandardRange.TabIndex = 11;
+            // 
+            // lbl_VehicleCount
+            // 
+            this.lbl_VehicleCount.AutoSize = true;
+            this.lbl_VehicleCount.Location = new System.Drawing.Point(211, 374);
+            this.lbl_VehicleCount.Name = "lbl_VehicleCount";
+            this.lbl_VehicleCount.Size = new System.Drawing.Size(49, 15);
+            this.lbl_VehicleCount.TabIndex = 12;
+            this.lbl_VehicleCount.Text = "0/40 0%";
             // 
             // CTL_VehicleCargo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lbl_VehicleCount);
             this.Controls.Add(this.lst_StandardRange);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lst_MidRange);
@@ -176,7 +192,7 @@ namespace UI_Windows.Controls
             this.Controls.Add(this.lbl_CurrentVehicles);
             this.Controls.Add(this.lst_CurrentVehicles);
             this.Name = "CTL_VehicleCargo";
-            this.Size = new System.Drawing.Size(558, 395);
+            this.Size = new System.Drawing.Size(622, 395);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,5 +212,6 @@ namespace UI_Windows.Controls
         private System.Windows.Forms.ListBox lst_MidRange;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox lst_StandardRange;
+        private System.Windows.Forms.Label lbl_VehicleCount;
     }
 }
