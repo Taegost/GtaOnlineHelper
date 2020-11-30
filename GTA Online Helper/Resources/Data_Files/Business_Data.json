@@ -1,0 +1,164 @@
+{
+  "Gunrunning Bunker": {
+    "businessType": "3",
+    "maxCapacity": 100,
+    "baseMinutesPerUnit": 10,
+    "baseUnitPrice": 5000,
+    "baseDailyUpkeep": 4700,
+    "upgrades": [
+      {
+        "name": "Equipment Upgrade",
+        "dailyUpkeepCost": 1500,
+        "unitPerMinuteIncrease": 1.5,
+        "upgradePriceIncrease": 1000
+      },
+      {
+        "name": "Staff Upgrade",
+        "dailyUpkeepCost": 2325,
+        "unitPerMinuteIncrease": 1.5,
+        "upgradePriceIncrease": 1000
+      },
+      {
+        "name": "Security Upgrade",
+        "dailyUpkeepCost": 775,
+        "unitPerMinuteIncrease": 0,
+        "upgradePriceIncrease": 0
+      }
+    ]
+  },
+  "Cocaine Lockup": {
+    "businessType": "2",
+    "maxCapacity": 10,
+    "baseMinutesPerUnit": 50,
+    "baseUnitPrice": 20000,
+    "baseDailyUpkeep": 4500,
+    "upgrades": [
+      {
+        "name": "Equipment Upgrade",
+        "dailyUpkeepCost": 1500,
+        "unitPerMinuteIncrease": 10,
+        "upgradePriceIncrease": 4000
+      },
+      {
+        "name": "Staff Upgrade",
+        "dailyUpkeepCost": 2250,
+        "unitPerMinuteIncrease": 10,
+        "upgradePriceIncrease": 4000
+      },
+      {
+        "name": "Security Upgrade",
+        "dailyUpkeepCost": 750,
+        "unitPerMinuteIncrease": 0,
+        "upgradePriceIncrease": 0
+      }
+    ]
+  },
+  "Methamphetamine Lab": {
+    "businessType": "2",
+    "maxCapacity": 20,
+    "baseMinutesPerUnit": 30,
+    "baseUnitPrice": 8500,
+    "baseDailyUpkeep": 3600,
+    "upgrades": [
+      {
+        "name": "Equipment Upgrade",
+        "dailyUpkeepCost": 1200,
+        "unitPerMinuteIncrease": 6,
+        "upgradePriceIncrease": 1700
+      },
+      {
+        "name": "Staff Upgrade",
+        "dailyUpkeepCost": 1800,
+        "unitPerMinuteIncrease": 6,
+        "upgradePriceIncrease": 1700
+      },
+      {
+        "name": "Security Upgrade",
+        "dailyUpkeepCost": 600,
+        "unitPerMinuteIncrease": 0,
+        "upgradePriceIncrease": 0
+      }
+    ]
+  },
+  "Counterfeit Cash Factory": {
+    "businessType": "2",
+    "maxCapacity": 40,
+    "baseMinutesPerUnit": 12,
+    "baseUnitPrice": 3500,
+    "baseDailyUpkeep": 3000,
+    "upgrades": [
+      {
+        "name": "Equipment Upgrade",
+        "dailyUpkeepCost": 1000,
+        "unitPerMinuteIncrease": 2,
+        "upgradePriceIncrease": 1000
+      },
+      {
+        "name": "Staff Upgrade",
+        "dailyUpkeepCost": 1500,
+        "unitPerMinuteIncrease": 2,
+        "upgradePriceIncrease": 1000
+      },
+      {
+        "name": "Security Upgrade",
+        "dailyUpkeepCost": 500,
+        "unitPerMinuteIncrease": 0,
+        "upgradePriceIncrease": 0
+      }
+    ]
+  },
+  "Weed Farm": {
+    "businessType": "2",
+    "maxCapacity": 80,
+    "baseMinutesPerUnit": 6,
+    "baseUnitPrice": 1500,
+    "baseDailyUpkeep": 2400,
+    "upgrades": [
+      {
+        "name": "Equipment Upgrade",
+        "dailyUpkeepCost": 800,
+        "unitPerMinuteIncrease": 1,
+        "upgradePriceIncrease": 300
+      },
+      {
+        "name": "Staff Upgrade",
+        "dailyUpkeepCost": 1200,
+        "unitPerMinuteIncrease": 1,
+        "upgradePriceIncrease": 300
+      },
+      {
+        "name": "Security Upgrade",
+        "dailyUpkeepCost": 400,
+        "unitPerMinuteIncrease": 0,
+        "upgradePriceIncrease": 0
+      }
+    ]
+  },
+  "Document Forgery": {
+    "businessType": "2",
+    "maxCapacity": 60,
+    "baseMinutesPerUnit": 5,
+    "baseUnitPrice": 1000,
+    "baseDailyUpkeep": 1500,
+    "upgrades": [
+      {
+        "name": "Equipment Upgrade",
+        "dailyUpkeepCost": 500,
+        "unitPerMinuteIncrease": 1,
+        "upgradePriceIncrease": 200
+      },
+      {
+        "name": "Staff Upgrade",
+        "dailyUpkeepCost": 750,
+        "unitPerMinuteIncrease": 1,
+        "upgradePriceIncrease": 200
+      },
+      {
+        "name": "Security Upgrade",
+        "dailyUpkeepCost": 250,
+        "unitPerMinuteIncrease": 0,
+        "upgradePriceIncrease": 0
+      }
+    ]
+  }
+}

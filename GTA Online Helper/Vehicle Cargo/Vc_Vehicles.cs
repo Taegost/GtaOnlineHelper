@@ -114,6 +114,11 @@ namespace GTA_Online_Helper
             return vehicleList;
         } // method GetVehiclesByName
 
+        public int GetNumberOfDriversByCollection(string collection)
+        {
+            return GetVehiclesInCollection(collection).Count();
+        } // method GetNumberOfDriversByCollection
+
         public List<string> GetCompletedCollectionsFromList(List<Vc_Vehicle> vehicleList)
         {
             List<string> completeCollectionList = new List<string>();

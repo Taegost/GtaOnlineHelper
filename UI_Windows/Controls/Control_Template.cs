@@ -12,6 +12,7 @@ namespace UI_Windows.Controls
     {
         public string ToolName { get; protected set; }
         public string SaveDirectory { get; protected set; }
+        public string SaveFile { get; protected set; }
 
         public Control_Template()
         {

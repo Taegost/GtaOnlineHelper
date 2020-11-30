@@ -87,9 +87,13 @@ namespace UI_Windows.Controls
             // Updates completed collections
             List<string> completedCollections = new Vc_Vehicles().GetCompletedCollectionsFromList(currentVehicles);
             lst_CompleteCollections.Items.Clear();
+            Vc_Vehicles fullVehicleList = new Vc_Vehicles();
             if (completedCollections.Count > 0)
             {
-                foreach (string collection in completedCollections) { if (!lst_CompleteCollections.Items.Contains(collection)) { lst_CompleteCollections.Items.Add(collection); } }
+                foreach (string collection in completedCollections) 
+                {
+                    string collectionString = $"{collection} - {fullVehicleList.GetNumberOfDriversByCollection(collection)}";
+                    if (!lst_CompleteCollections.Items.Contains(collectionString)) { lst_CompleteCollections.Items.Add(collectionString); } }
             }
 
             // Updates vehicles by range that aren't in a collection
@@ -116,7 +120,7 @@ namespace UI_Windows.Controls
             } // foreach (Vc_Vehicle vehicle in currentVehicles)
 
             int totalWarehouseSlots = 40;
-            int warehouseFillPercentage = (int)((double)currentVehicles.Count / totalWarehouseSlots * 100);
+            int warehouseFillPercentage = (int)(Math.Ceiling((double)currentVehicles.Count / totalWarehouseSlots * 100));
             lbl_VehicleCount.Text = $"{currentVehicles.Count}/{totalWarehouseSlots}  {warehouseFillPercentage}% full";
         } // method UpdateInterface
 

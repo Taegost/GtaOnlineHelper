@@ -26,30 +26,37 @@ namespace UI_Windows
             AddTool(new Control_AntiCheat(SaveDirectory));
             AddTool(new CTL_VehicleCargo(SaveDirectory));
 
-            foreach (UserControl tool in toolList) { pnl_Main.Controls.Add(tool); }
         }
 
         private void AddTool(Control_Template newControl)
         {
             toolList.Add(newControl);
+
+            // Creates and adds the buttons for the tool
+            int buttonHeight = 23;
+            int buttonWidth = 94;
+            int buttonPadding = (pnl_Navigation.Width - buttonWidth) / 2;
+            Button newButton = new Button();
+            newButton.Text = newControl.ToolName;
+            newButton.Size = new Size(buttonWidth, buttonHeight);
+            newButton.Location = new Point(0, ((toolList.Count - 1) * buttonHeight));
+            newButton.BackColor = Color.Gainsboro;
+            newButton.TextAlign = ContentAlignment.MiddleCenter;
+            newButton.Visible = true;
+            newButton.Left = buttonPadding;
+            pnl_Navigation.Controls.Add(newButton);
+
+            pnl_Main.Controls.Add(newControl);
+
+            newButton.Click += new EventHandler(ToolButtonClicked);
         } // method AddTool
 
-        private void ShowTool(string toolName)
+        private void ToolButtonClicked(object sender, EventArgs e)
         {
             foreach (Control_Template tool in toolList)
             {
-                tool.Visible = tool.ToolName == toolName;
+                tool.Visible = tool.ToolName == (sender as Button).Text;
             }
-        } // method ShowTool
-
-        private void btn_AntiCheat_Click(object sender, EventArgs e)
-        {
-            ShowTool("Anti-Cheat");
-        } // btn_AntiCheat_Click
-
-        private void btn_VehicleCargo_Click(object sender, EventArgs e)
-        {
-            ShowTool("Vehicle Cargo");
-        }
+        } // method ToolButtonClicked
     } // class MainWindow
 } // namespace
