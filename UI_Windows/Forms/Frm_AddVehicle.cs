@@ -5,7 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using GTA_Online_Helper;
+using GTA_Online_Helper.Shared;
 
 namespace UI_Windows.Forms
 {

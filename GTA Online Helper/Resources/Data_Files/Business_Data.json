@@ -8,7 +8,7 @@
     "upgrades": [
       {
         "name": "Equipment Upgrade",
-        "dailyUpkeepCost": 1500,
+        "dailyUpkeepCost": 1600,
         "unitPerMinuteIncrease": 1.5,
         "upgradePriceIncrease": 1000
       },

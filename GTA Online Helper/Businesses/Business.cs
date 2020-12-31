@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace GTA_Online_Helper.Businesses
+namespace GTA_Online_Helper.Shared
 {
     public class Business
     {
@@ -52,5 +52,40 @@ namespace GTA_Online_Helper.Businesses
             BaseDailyUpkeep = baseDailyUpkeep;
             Upgrades = upgrades;
         } // constructor
+
+        public int GetTwoVehicleLocalThresholdValue()
+        {
+            return (int)((double)MaxCapacity / 4 + 1) * CurrentUnitPrice;
+        } // method GetTwoVehicleLocalThresholdValue
+
+        public int GetThreeVehicleLocalThresholdValue()
+        {
+            return (int)((double)MaxCapacity / 4 * 2 + 1) * CurrentUnitPrice;
+        } // method GetThreeVehicleLocalThresholdValue
+
+        public int GetFourVehicleLocalThresholdValue()
+        {
+            return (int)((double)MaxCapacity / 4 * 3 + 1) * CurrentUnitPrice;
+        } // method GetFourVehicleLocalThresholdValue
+
+        public int GetLosSantosSellPrice(int price)
+        {
+            return (int)((double)price * 1.5);
+        } // GetLosSantosSellPrice
+
+        public int GetTwoVehicleLosSantosThresholdValue()
+        {
+            return GetLosSantosSellPrice((int)((double)MaxCapacity / 4 + 1) * CurrentUnitPrice);
+        } // method GetTwoVehicleLosSantosThresholdValue
+
+        public int GetThreeVehicleLosSantosThresholdValue()
+        {
+            return GetLosSantosSellPrice((int)((double)MaxCapacity / 4 * 2 + 1) * CurrentUnitPrice);
+        } // method GetThreeVehicleLosSantosThresholdValue
+
+        public int GetFourVehicleLosSantosThresholdValue()
+        {
+            return GetLosSantosSellPrice((int)((double)MaxCapacity / 4 * 3 + 1) * CurrentUnitPrice);
+        } // method GetFourVehicleLosSantosThresholdValue
     } // class Business
 }

@@ -38,14 +38,14 @@
             // 
             this.mnu_Top.Location = new System.Drawing.Point(0, 0);
             this.mnu_Top.Name = "mnu_Top";
-            this.mnu_Top.Size = new System.Drawing.Size(800, 24);
+            this.mnu_Top.Size = new System.Drawing.Size(936, 24);
             this.mnu_Top.TabIndex = 0;
             // 
             // sts_Bottom
             // 
-            this.sts_Bottom.Location = new System.Drawing.Point(0, 428);
+            this.sts_Bottom.Location = new System.Drawing.Point(0, 491);
             this.sts_Bottom.Name = "sts_Bottom";
-            this.sts_Bottom.Size = new System.Drawing.Size(800, 22);
+            this.sts_Bottom.Size = new System.Drawing.Size(936, 22);
             this.sts_Bottom.TabIndex = 2;
             // 
             // pnl_Main
@@ -55,7 +55,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnl_Main.Location = new System.Drawing.Point(131, 28);
             this.pnl_Main.Name = "pnl_Main";
-            this.pnl_Main.Size = new System.Drawing.Size(669, 397);
+            this.pnl_Main.Size = new System.Drawing.Size(805, 460);
             this.pnl_Main.TabIndex = 3;
             // 
             // pnl_Navigation
@@ -69,7 +69,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(936, 513);
             this.Controls.Add(this.pnl_Navigation);
             this.Controls.Add(this.pnl_Main);
             this.Controls.Add(this.sts_Bottom);

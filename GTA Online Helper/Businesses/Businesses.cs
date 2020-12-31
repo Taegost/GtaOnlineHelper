@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace GTA_Online_Helper.Businesses
+namespace GTA_Online_Helper.Shared
 {
     public class Businesses
     {
@@ -14,6 +14,11 @@ namespace GTA_Online_Helper.Businesses
         {
             LoadBusinesses();
         } // constructor
+
+        public Business this[int index]
+        {
+            get => FullBusinessList[index];
+        } // indexer
 
         private void LoadBusinesses()
         {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace GTA_Online_Helper.Businesses
+namespace GTA_Online_Helper.Shared
 {
     public enum BusinessTypes
     {

@@ -10,7 +10,7 @@ using System.Text;
 using System.Text.Json;
 using static System.Console;
 
-namespace GTA_Online_Helper
+namespace GTA_Online_Helper.Shared
 {
     public class Vc_Vehicles
     {

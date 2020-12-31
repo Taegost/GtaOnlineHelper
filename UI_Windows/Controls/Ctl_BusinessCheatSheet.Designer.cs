@@ -29,10 +29,32 @@ namespace UI_Windows.Controls
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.pnl_Main = new System.Windows.Forms.FlowLayoutPanel();
+            this.SuspendLayout();
+            // 
+            // pnl_Main
+            // 
+            this.pnl_Main.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnl_Main.Location = new System.Drawing.Point(0, 0);
+            this.pnl_Main.Margin = new System.Windows.Forms.Padding(0);
+            this.pnl_Main.Name = "pnl_Main";
+            this.pnl_Main.Size = new System.Drawing.Size(805, 460);
+            this.pnl_Main.TabIndex = 0;
+            // 
+            // Ctl_BusinessCheatSheet
+            // 
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.Controls.Add(this.pnl_Main);
+            this.Name = "Ctl_BusinessCheatSheet";
+            this.Size = new System.Drawing.Size(805, 460);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.FlowLayoutPanel pnl_Main;
     }
 }

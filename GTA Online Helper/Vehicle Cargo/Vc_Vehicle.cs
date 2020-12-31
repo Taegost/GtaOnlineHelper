@@ -4,7 +4,7 @@ using System;
 /// <summary>
 /// Describes a Vehicle Cargo vehicle
 /// </summary>
-namespace GTA_Online_Helper
+namespace GTA_Online_Helper.Shared
 {
     public class Vc_Vehicle
     {

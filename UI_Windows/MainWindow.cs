@@ -23,9 +23,8 @@ namespace UI_Windows
             SaveDirectory = Path.Combine(SaveDirectory, "Debug");
 #endif
             // Add tools to the panel
-            AddTool(new Control_AntiCheat(SaveDirectory));
             AddTool(new CTL_VehicleCargo(SaveDirectory));
-
+            AddTool(new Ctl_BusinessCheatSheet(SaveDirectory));
         }
 
         private void AddTool(Control_Template newControl)
@@ -36,18 +35,19 @@ namespace UI_Windows
             int buttonHeight = 23;
             int buttonWidth = 94;
             int buttonPadding = (pnl_Navigation.Width - buttonWidth) / 2;
-            Button newButton = new Button();
-            newButton.Text = newControl.ToolName;
-            newButton.Size = new Size(buttonWidth, buttonHeight);
-            newButton.Location = new Point(0, ((toolList.Count - 1) * buttonHeight));
-            newButton.BackColor = Color.Gainsboro;
-            newButton.TextAlign = ContentAlignment.MiddleCenter;
-            newButton.Visible = true;
-            newButton.Left = buttonPadding;
+            Button newButton = new Button
+            {
+                Text = newControl.ToolName,
+                Size = new Size(buttonWidth, buttonHeight),
+                Location = new Point(0, ((toolList.Count - 1) * buttonHeight)),
+                BackColor = Color.Gainsboro,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Visible = true,
+                Left = buttonPadding
+            };
+
             pnl_Navigation.Controls.Add(newButton);
-
             pnl_Main.Controls.Add(newControl);
-
             newButton.Click += new EventHandler(ToolButtonClicked);
         } // method AddTool
 

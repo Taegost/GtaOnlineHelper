@@ -6,7 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
-using GTA_Online_Helper;
+using GTA_Online_Helper.Shared;
 using Newtonsoft.Json;
 using UI_Windows.Forms;
 
