@@ -9,8 +9,8 @@ using WebFrontEnd.Data;
 namespace WebFrontEnd.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201231225715_AddVcVehicleSchema")]
-    partial class AddVcVehicleSchema
+    [Migration("20210101221246_SeedVcVehicleData")]
+    partial class SeedVcVehicleData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
