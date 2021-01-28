@@ -1,0 +1,28 @@
+﻿@model  IEnumerable<WebFrontEnd.Models.UserVcVehicle>
+@{
+    ViewData["Title"] = "Vehicle Cargo";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <h2>Current Vehicles</h2>
+            @if ((Model.Count() == 0))
+            {
+                <p>There are no vehicles in your list</p>
+            }
+            else
+            {
+                foreach (UserVcVehicle vehicle in Model)
+                {
+                    <p>@vehicle.Plate.Vehicle.Name - @vehicle.Plate.Name</p>
+                }
+            }
+        </div>
+        <div class="col-sm">
+            <h2>Complete Collections</h2>
+        </div>
+        <div class="col-sm">
+            <h2>"Owned" Vehicles That Can Be Sold</h2>
+        </div>
+    </div>
+</div>
