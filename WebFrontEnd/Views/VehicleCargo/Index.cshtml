@@ -1,4 +1,5 @@
-﻿@model  IEnumerable<WebFrontEnd.Models.UserVcVehicle>
+﻿@model VehicleCargoViewModel
+@using WebFrontEnd.Models
 @{
     ViewData["Title"] = "Vehicle Cargo";
 }
@@ -6,23 +7,65 @@
     <div class="row">
         <div class="col-sm">
             <h2>Current Vehicles</h2>
-            @if ((Model.Count() == 0))
+            @if (Model.GetUserVehicles().Count() == 0)
             {
                 <p>There are no vehicles in your list</p>
             }
             else
             {
-                foreach (UserVcVehicle vehicle in Model)
+                foreach (UserVcVehicle vehicle in Model.GetUserVehicles())
                 {
                     <p>@vehicle.Plate.Vehicle.Name - @vehicle.Plate.Name</p>
                 }
             }
         </div>
         <div class="col-sm">
+            <form>
+                <div class="col-12 row">
+                    <select asp-for="@vehicleSelectedToAdd" asp-items="Model.GetAllVehiclesForDropdown()">
+                        <option value="">-Select a vehicle</option>
+                    </select>
+                </div>
+                <br />
+                <div class="col-12 row">
+                    <select asp-for="@Model.GetPlatesForVehicleForDropdown()">
+                        @if (vehicleSelectedToAdd.ID > 0)
+                        {
+                            @foreach (VcPlate plate in Model.GetPlatesForVehicle(vehicleSelectedToAdd))
+                            {
+                                <option value="@plate.ID">@plate.Name</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <button type="submit">Add</button>
+            </form>
+
+        </div>
+        <div class="col-sm">
             <h2>Complete Collections</h2>
+
         </div>
         <div class="col-sm">
             <h2>"Owned" Vehicles That Can Be Sold</h2>
         </div>
     </div>
 </div>
+
+@functions {
+    VcVehicle vehicleSelectedToAdd = new VcVehicle { ID = 1 };
+
+    List<VcPlate> platesForSelectedVehicle = new List<VcPlate>();
+    protected void OnInitialized()
+    {
+        platesForSelectedVehicle = Model.GetPlatesForVehicle(vehicleSelectedToAdd);
+    }
+
+    private async Task VehicleToAddSelectionChanged()
+    {
+        if (Model.SelectedVehicleToAdd > -1)
+        {
+
+        }
+    } // method VehicleToAddSelectionChanged
+} 

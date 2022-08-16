@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using WebFrontEnd.Data;
 using Microsoft.AspNetCore.Authorization;
 using WebFrontEnd.Models;
+using WebFrontEnd.ViewModels;
 
 namespace WebFrontEnd
 {
@@ -31,11 +32,7 @@ namespace WebFrontEnd
         public async Task<IActionResult> Index()
         {
             string userId = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            Debug.WriteLine($"User ID: {userId}");
-            IEnumerable<UserVcVehicle> model = db.UserVcVehicles
-                .Include(u => u.Plate)
-                .Include(u => u.Plate.Vehicle)
-                .Where(u => u.UserId == userId);
+            VehicleCargoViewModel model = new VehicleCargoViewModel(db, userId);
             return View(model);
         }
 
