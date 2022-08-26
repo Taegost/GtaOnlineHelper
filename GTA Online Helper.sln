@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30225.117
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GTA Online Helper", "GTA Online Helper\GTA Online Helper.csproj", "{BDA16589-5FE7-4375-82AB-315F7547D53F}"
 EndProject
@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UI_Windows", "UI_Windows\UI
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebFrontEnd", "WebFrontEnd\WebFrontEnd.csproj", "{49F387E6-C4B4-4960-8CFC-23876B0AB132}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataConversrion", "DataConversrion\DataConversrion.csproj", "{7BCBA1C0-73D4-4505-B61C-9DA2720627BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataConversrion", "DataConversrion\DataConversrion.csproj", "{7BCBA1C0-73D4-4505-B61C-9DA2720627BF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GTA_Online_Helper.blazor", "GTA_Online_Helper.blazor\GTA_Online_Helper.blazor.csproj", "{7287B436-C015-44DC-A82C-9CF614E5D8FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +63,14 @@ Global
 		{7BCBA1C0-73D4-4505-B61C-9DA2720627BF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7BCBA1C0-73D4-4505-B61C-9DA2720627BF}.Release|x86.ActiveCfg = Release|Any CPU
 		{7BCBA1C0-73D4-4505-B61C-9DA2720627BF}.Release|x86.Build.0 = Release|Any CPU
+		{7287B436-C015-44DC-A82C-9CF614E5D8FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7287B436-C015-44DC-A82C-9CF614E5D8FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7287B436-C015-44DC-A82C-9CF614E5D8FD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7287B436-C015-44DC-A82C-9CF614E5D8FD}.Debug|x86.Build.0 = Debug|Any CPU
+		{7287B436-C015-44DC-A82C-9CF614E5D8FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7287B436-C015-44DC-A82C-9CF614E5D8FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7287B436-C015-44DC-A82C-9CF614E5D8FD}.Release|x86.ActiveCfg = Release|Any CPU
+		{7287B436-C015-44DC-A82C-9CF614E5D8FD}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
